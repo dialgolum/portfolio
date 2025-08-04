@@ -1,5 +1,23 @@
 import { useState } from 'react'
 import profileImage from './assets/IMG/my-pic.jpg'
+import reactIcon from './assets/icons/React (1).png'
+import pythonIcon from './assets/icons/python.png'
+import htmlIcon from './assets/icons/html.png'
+import cssIcon from './assets/icons/css.png'
+import javaIcon from './assets/icons/java.png'
+import cIcon from './assets/icons/c.png'
+import cppIcon from './assets/icons/c++.png'
+import mysqlIcon from './assets/icons/mysql.png'
+import phpIcon from './assets/icons/php.png'
+import javaScriptIcon from './assets/icons/js.png'
+import typeSciptIcon from './assets/icons/typescript.png'
+import tailwindIcon from './assets/icons/Tailwind CSS.png'
+import mongodbIcon from './assets/icons/MongoDB.png'
+import streamlitIcon from './assets/icons/Streamlit.png'
+import androidIcon from './assets/icons/Android Studio.png'
+import figmaIcon from './assets/icons/Figma.png'
+import springIcon from './assets/icons/Spring.png'
+import vsIcon from './assets/icons/vs.png'
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
@@ -170,27 +188,32 @@ function App() {
           <h2 className="text-4xl font-bold text-center mb-16 text-blue-400">Skills & Technologies</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
             {[
-              { name: 'React', logo: '⚛️' },
-              { name: 'TypeScript', logo: '📘' },
-              { name: 'Node.js', logo: '🟢' },
-              { name: 'Python', logo: '🐍' },
-              { name: 'HTML5', logo: '🌐' },
-              { name: 'CSS3', logo: '🎨' },
-              { name: 'JavaScript', logo: '💛' },
-              { name: 'MongoDB', logo: '🍃' },
-              { name: 'PostgreSQL', logo: '🐘' },
-              { name: 'Git', logo: '📝' },
-              { name: 'Docker', logo: '🐳' },
-              { name: 'AWS', logo: '☁️' },
-              { name: 'Figma', logo: '🎯' },
-              { name: 'Next.js', logo: '⚡' },
-              { name: 'Tailwind', logo: '🎪' },
-              { name: 'Express', logo: '🚂' },
-              { name: 'Redis', logo: '🔴' }
+              { name: 'C', logo: cIcon },
+              { name: 'C++', logo: cppIcon },
+              { name: 'HTML', logo: htmlIcon },
+              { name: 'CSS', logo: cssIcon },
+              { name: 'PHP', logo: phpIcon },
+              { name: 'Java', logo: javaIcon },
+              { name: 'React', logo: reactIcon },
+              { name: 'JavaScript', logo: javaScriptIcon },
+              { name: 'TypeScript', logo: typeSciptIcon },
+              { name: 'Tailwind', logo: tailwindIcon },
+              { name: 'Spring Boot', logo: springIcon },
+              { name: 'MongoDB', logo: mongodbIcon },
+              { name: 'MySQL', logo: mysqlIcon },
+              { name: 'Android Studio', logo: androidIcon },
+              { name: 'Figma', logo: figmaIcon },
+              { name: 'Python', logo: pythonIcon },
+              { name: 'Streamlit', logo: streamlitIcon },
+              { name: 'VS Code', logo: vsIcon }
             ].map((tech) => (
               <div key={tech.name} className="flex flex-col items-center group">
-                <div className="w-20 h-20 md:w-24 md:h-24 bg-gray-800 rounded-full flex items-center justify-center text-3xl md:text-4xl mb-3 hover:bg-gray-700 transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-blue-400">
-                  {tech.logo}
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-gray-800 rounded-full flex items-center justify-center mb-3 hover:bg-gray-700 transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-blue-400 overflow-hidden">
+                  <img 
+                    src={tech.logo} 
+                    alt={tech.name} 
+                    className="w-12 h-12 md:w-14 md:h-14 object-contain"
+                  />
                 </div>
                 <span className="text-gray-300 text-sm md:text-base font-medium text-center group-hover:text-blue-400 transition-colors">
                   {tech.name}
