@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import profileImage from './assets/IMG/my-pic.jpg'
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
@@ -19,7 +20,7 @@ function App() {
           <div className="flex justify-between items-center h-16">
             <div className="text-2xl font-bold text-blue-400">Portfolio</div>
             <div className="hidden md:flex space-x-8">
-              {['home', 'about', 'skills', 'projects', 'experience', 'contact'].map((section) => (
+              {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -32,91 +33,132 @@ function App() {
               ))}
             </div>
           </div>
-        </div>
+      </div>
       </nav>
 
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900/20 to-gray-900">
-        <div className="text-center max-w-4xl mx-auto px-4">
-          <div className="mb-8">
-            <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
-              <span className="text-4xl font-bold">JD</span>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Name and Details */}
+            <div className="text-left">
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 gradient-text">
+                Hi! I'm Dilum
+              </h1>
+              <h2 className="text-2xl md:text-3xl text-gray-300 mb-8">
+                Full Stack Developer & UI/UX Designer
+              </h2>
+              <p className="text-xl text-gray-400 mb-12 leading-relaxed">
+                Passionate about creating beautiful, functional, and user-centered digital experiences. 
+                I love turning complex problems into simple, beautiful solutions.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button 
+                  onClick={() => scrollToSection('projects')}
+                  className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-colors"
+                >
+                  View My Work
+                </button>
+        <button 
+                  onClick={() => window.open('https://mysliit-my.sharepoint.com/:b:/g/personal/it23150102_my_sliit_lk/ETPk2D5W4J9Cu0b19G-L6uwBQDkIrWIxzlNaNTa1Bnts-w?e=wT8Bib', '_blank')}
+                  className="px-8 py-3 border border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white rounded-lg font-semibold transition-colors"
+        >
+                  Resume
+        </button>
+              </div>
             </div>
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 gradient-text">
-            John Doe
-          </h1>
-          <h2 className="text-2xl md:text-3xl text-gray-300 mb-8">
-            Full Stack Developer & UI/UX Designer
-          </h2>
-          <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-            Passionate about creating beautiful, functional, and user-centered digital experiences. 
-            I love turning complex problems into simple, beautiful solutions.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
-              onClick={() => scrollToSection('projects')}
-              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-colors"
-            >
-              View My Work
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="px-8 py-3 border border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white rounded-lg font-semibold transition-colors"
-            >
-              Get In Touch
-            </button>
+            
+            {/* Right Side - Profile Image */}
+            <div className="flex justify-center md:justify-end">
+              <div className="w-72 h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-2 shadow-2xl">
+                <div className="w-full h-full rounded-full overflow-hidden bg-gray-800 flex items-center justify-center">
+                  <img 
+                    src={profileImage} 
+                    alt="John Doe" 
+                    className="w-full h-full object-cover rounded-full"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* About Section */}
       <section id="about" className="py-20 bg-gray-800">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16 text-blue-400">About Me</h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl font-semibold mb-6">Who I Am</h3>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                I'm a passionate Full Stack Developer with 5+ years of experience in creating 
-                web applications that make a difference. I specialize in React, Node.js, and 
-                modern web technologies.
-              </p>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                When I'm not coding, you can find me exploring new technologies, contributing 
-                to open-source projects, or sharing knowledge with the developer community.
-              </p>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gray-700 p-4 rounded-lg">
-                  <div className="text-2xl font-bold text-blue-400">50+</div>
-                  <div className="text-gray-400">Projects Completed</div>
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-blue-400">About Me</h2>
+          <div className="flex flex-col gap-6">
+            {/* Education Card */}
+            <div className="flex items-center bg-gray-700 rounded-lg p-4 md:p-6 hover:bg-gray-600 transition-all duration-300 hover:scale-[1.02] group w-full min-h-[90px] md:min-h-[110px]">
+              <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-2xl mr-6">
+                🎓
+              </div>
+              <div className="flex-1">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                  <div>
+                    <h3 className="text-lg md:text-xl font-semibold text-blue-400">Education</h3>
+                    <p className="text-gray-300 text-sm md:text-base">Bachelor of Science in Information Technology</p>
+                  </div>
+                  <div className="text-right md:ml-8">
+                    <p className="text-blue-400 font-medium">SLIIT University</p>
+                    <p className="text-gray-400 text-xs md:text-sm">2020 - 2024</p>
+                  </div>
                 </div>
-                <div className="bg-gray-700 p-4 rounded-lg">
-                  <div className="text-2xl font-bold text-blue-400">5+</div>
-                  <div className="text-gray-400">Years Experience</div>
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
+                  <p className="text-gray-300 text-xs md:text-sm">
+                    Specialized in Software Engineering with focus on modern web technologies and database management.
+                  </p>
                 </div>
               </div>
             </div>
-            <div className="bg-gray-700 p-8 rounded-lg">
-              <h4 className="text-xl font-semibold mb-4">Quick Facts</h4>
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
-                  Based in San Francisco, CA
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
-                  Available for remote work
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
-                  Passionate about clean code
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
-                  Always learning new technologies
-                </li>
-              </ul>
+
+            {/* Experience Card */}
+            <div className="flex items-center bg-gray-700 rounded-lg p-4 md:p-6 hover:bg-gray-600 transition-all duration-300 hover:scale-[1.02] group w-full min-h-[90px] md:min-h-[110px]">
+              <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-green-500 to-blue-600 rounded-full flex items-center justify-center text-2xl mr-6">
+                💼
+              </div>
+              <div className="flex-1">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                  <div>
+                    <h3 className="text-lg md:text-xl font-semibold text-blue-400">Experience</h3>
+                    <p className="text-gray-300 text-sm md:text-base">Full Stack Developer</p>
+                  </div>
+                  <div className="text-right md:ml-8">
+                    <p className="text-blue-400 font-medium">Tech Solutions Inc.</p>
+                    <p className="text-gray-400 text-xs md:text-sm">2022 - Present</p>
+                  </div>
+                </div>
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
+                  <p className="text-gray-300 text-xs md:text-sm">
+                    Developing scalable web applications using React, Node.js, and cloud technologies.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Skills Card */}
+            <div className="flex items-center bg-gray-700 rounded-lg p-4 md:p-6 hover:bg-gray-600 transition-all duration-300 hover:scale-[1.02] group w-full min-h-[90px] md:min-h-[110px]">
+              <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-2xl mr-6">
+                ⚡
+              </div>
+              <div className="flex-1">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                  <div>
+                    <h3 className="text-lg md:text-xl font-semibold text-blue-400">Expertise</h3>
+                    <p className="text-gray-300 text-sm md:text-base">Frontend & Backend Development</p>
+                  </div>
+                  <div className="text-right md:ml-8">
+                    <p className="text-blue-400 font-medium">Modern Web Stack</p>
+                    <p className="text-gray-400 text-xs md:text-sm">5+ Years</p>
+                  </div>
+                </div>
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
+                  <p className="text-gray-300 text-xs md:text-sm">
+                    Proficient in React, TypeScript, Node.js, and various modern development tools and frameworks.
+        </p>
+      </div>
+              </div>
             </div>
           </div>
         </div>
@@ -126,46 +168,35 @@ function App() {
       <section id="skills" className="py-20 bg-gray-900">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16 text-blue-400">Skills & Technologies</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gray-800 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-blue-400">Frontend</h3>
-              <div className="space-y-3">
-                {['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'HTML5', 'CSS3'].map((skill) => (
-                  <div key={skill} className="flex justify-between items-center">
-                    <span className="text-gray-300">{skill}</span>
-                    <div className="w-24 bg-gray-700 rounded-full h-2">
-                      <div className="bg-blue-400 h-2 rounded-full" style={{width: `${Math.random() * 30 + 70}%`}}></div>
-                    </div>
-                  </div>
-                ))}
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+            {[
+              { name: 'React', logo: '⚛️' },
+              { name: 'TypeScript', logo: '📘' },
+              { name: 'Node.js', logo: '🟢' },
+              { name: 'Python', logo: '🐍' },
+              { name: 'HTML5', logo: '🌐' },
+              { name: 'CSS3', logo: '🎨' },
+              { name: 'JavaScript', logo: '💛' },
+              { name: 'MongoDB', logo: '🍃' },
+              { name: 'PostgreSQL', logo: '🐘' },
+              { name: 'Git', logo: '📝' },
+              { name: 'Docker', logo: '🐳' },
+              { name: 'AWS', logo: '☁️' },
+              { name: 'Figma', logo: '🎯' },
+              { name: 'Next.js', logo: '⚡' },
+              { name: 'Tailwind', logo: '🎪' },
+              { name: 'Express', logo: '🚂' },
+              { name: 'Redis', logo: '🔴' }
+            ].map((tech) => (
+              <div key={tech.name} className="flex flex-col items-center group">
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-gray-800 rounded-full flex items-center justify-center text-3xl md:text-4xl mb-3 hover:bg-gray-700 transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-blue-400">
+                  {tech.logo}
+                </div>
+                <span className="text-gray-300 text-sm md:text-base font-medium text-center group-hover:text-blue-400 transition-colors">
+                  {tech.name}
+                </span>
               </div>
-            </div>
-            <div className="bg-gray-800 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-blue-400">Backend</h3>
-              <div className="space-y-3">
-                {['Node.js', 'Express.js', 'Python', 'PostgreSQL', 'MongoDB', 'Redis'].map((skill) => (
-                  <div key={skill} className="flex justify-between items-center">
-                    <span className="text-gray-300">{skill}</span>
-                    <div className="w-24 bg-gray-700 rounded-full h-2">
-                      <div className="bg-blue-400 h-2 rounded-full" style={{width: `${Math.random() * 30 + 70}%`}}></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="bg-gray-800 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-blue-400">Tools & Others</h3>
-              <div className="space-y-3">
-                {['Git', 'Docker', 'AWS', 'Figma', 'Jest', 'CI/CD'].map((skill) => (
-                  <div key={skill} className="flex justify-between items-center">
-                    <span className="text-gray-300">{skill}</span>
-                    <div className="w-24 bg-gray-700 rounded-full h-2">
-                      <div className="bg-blue-400 h-2 rounded-full" style={{width: `${Math.random() * 30 + 70}%`}}></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -232,45 +263,7 @@ function App() {
         </div>
       </section>
 
-      {/* Experience Section */}
-      <section id="experience" className="py-20 bg-gray-900">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16 text-blue-400">Work Experience</h2>
-          <div className="space-y-8">
-            {[
-              {
-                title: "Senior Full Stack Developer",
-                company: "TechCorp Inc.",
-                period: "2022 - Present",
-                description: "Leading development of enterprise web applications using React, Node.js, and cloud technologies."
-              },
-              {
-                title: "Full Stack Developer",
-                company: "StartupXYZ",
-                period: "2020 - 2022",
-                description: "Built and maintained multiple web applications, working closely with design and product teams."
-              },
-              {
-                title: "Frontend Developer",
-                company: "Digital Agency",
-                period: "2019 - 2020",
-                description: "Created responsive websites and web applications for various clients using modern frontend technologies."
-              }
-            ].map((job, index) => (
-              <div key={index} className="bg-gray-800 p-6 rounded-lg border-l-4 border-blue-400">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-blue-400">{job.title}</h3>
-                    <p className="text-gray-300">{job.company}</p>
-                  </div>
-                  <span className="text-gray-400 text-sm">{job.period}</span>
-                </div>
-                <p className="text-gray-300">{job.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-gray-800">
