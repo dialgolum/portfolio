@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import profileImage from './assets/IMG/my-pic.jpg'
+import tasteProjectImage from './assets/projects/taste.png'
 import reactIcon from './assets/icons/React (1).png'
 import pythonIcon from './assets/icons/python.png'
 import htmlIcon from './assets/icons/html.png'
@@ -18,6 +19,9 @@ import androidIcon from './assets/icons/Android Studio.png'
 import figmaIcon from './assets/icons/Figma.png'
 import springIcon from './assets/icons/Spring.png'
 import vsIcon from './assets/icons/vs.png'
+import githubIcon from './assets/icons/githubIcon.png'
+import linkedinIcon from './assets/icons/linkedinIcon.png'
+import emailIcon from './assets/icons/emailIcon.png'
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
@@ -233,43 +237,43 @@ function App() {
               {
                 title: "E-Commerce Platform",
                 description: "A full-stack e-commerce solution with React, Node.js, and Stripe integration.",
-                tech: ["React", "Node.js", "Stripe", "MongoDB"],
-                image: "🛒"
+                tech: ["React", "Node.js", "Stripe", "MongoDB"]
               },
               {
                 title: "Task Management App",
                 description: "A collaborative task management application with real-time updates.",
-                tech: ["React", "Socket.io", "Express", "PostgreSQL"],
-                image: "📋"
+                tech: ["React", "Socket.io", "Express", "PostgreSQL"]
               },
               {
                 title: "Portfolio Website",
                 description: "A modern, responsive portfolio website built with React and Tailwind CSS.",
-                tech: ["React", "TypeScript", "Tailwind CSS"],
-                image: "💼"
+                tech: ["React", "TypeScript", "Tailwind CSS"]
               },
               {
                 title: "Weather Dashboard",
                 description: "A beautiful weather application with location-based forecasts.",
-                tech: ["React", "OpenWeather API", "Chart.js"],
-                image: "🌤️"
+                tech: ["React", "OpenWeather API", "Chart.js"]
               },
               {
                 title: "Social Media Clone",
                 description: "A social media platform with posts, comments, and user authentication.",
-                tech: ["React", "Firebase", "Material-UI"],
-                image: "📱"
+                tech: ["React", "Firebase", "Material-UI"]
               },
               {
                 title: "Blog Platform",
                 description: "A content management system for bloggers with markdown support.",
-                tech: ["Next.js", "Prisma", "PostgreSQL"],
-                image: "✍️"
+                tech: ["Next.js", "Prisma", "PostgreSQL"]
               }
             ].map((project, index) => (
-              <div key={index} className="bg-gray-700 rounded-lg overflow-hidden project-card">
+              <div key={index} className="bg-gray-700 rounded-lg overflow-hidden project-card hover:scale-105 transition-transform duration-300">
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={tasteProjectImage} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
                 <div className="p-6">
-                  <div className="text-4xl mb-4">{project.image}</div>
                   <h3 className="text-xl font-semibold mb-3 text-blue-400">{project.title}</h3>
                   <p className="text-gray-300 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
@@ -292,58 +296,61 @@ function App() {
       <section id="contact" className="py-20 bg-gray-800">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16 text-blue-400">Get In Touch</h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-semibold mb-6">Let's Work Together</h3>
-              <p className="text-gray-300 mb-8">
-                I'm always interested in hearing about new opportunities and exciting projects. 
-                Feel free to reach out if you'd like to collaborate or just want to say hello!
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <span className="text-blue-400 mr-3">📧</span>
-                  <span className="text-gray-300">john.doe@email.com</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="text-blue-400 mr-3">📱</span>
-                  <span className="text-gray-300">+1 (555) 123-4567</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="text-blue-400 mr-3">📍</span>
-                  <span className="text-gray-300">San Francisco, CA</span>
-                </div>
-              </div>
-            </div>
-            <div className="bg-gray-700 p-6 rounded-lg">
-              <form className="space-y-4">
-                <div>
-                  <input 
-                    type="text" 
-                    placeholder="Your Name" 
-                    className="w-full p-3 bg-gray-600 border border-gray-500 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400"
+          <div className="flex flex-col items-center">
+            <h3 className="text-2xl font-semibold mb-6 text-center">Let's Connect</h3>
+            <p className="text-gray-300 mb-12 text-center max-w-2xl">
+              I'm always interested in hearing about new opportunities and exciting projects. 
+              Feel free to reach out if you'd like to collaborate or just want to say hello!
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-2xl">
+              <a 
+                href="https://github.com/dialgolum" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex flex-col items-center p-6 bg-gray-700 rounded-lg hover:bg-gray-600 transition-all duration-300 hover:scale-105 group"
+              >
+                <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-gray-700 transition-colors">
+                  <img 
+                    src={githubIcon} 
+                    alt="GitHub" 
+                    className="w-8 h-8 object-contain"
                   />
                 </div>
-                <div>
-                  <input 
-                    type="email" 
-                    placeholder="Your Email" 
-                    className="w-full p-3 bg-gray-600 border border-gray-500 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400"
+                <h4 className="text-lg font-semibold text-blue-400 mb-2">GitHub</h4>
+                <p className="text-gray-300 text-sm text-center">@dialgolum</p>
+              </a>
+              
+              <a 
+                href="https://www.linkedin.com/in/dilum-hapugoda-91815030b/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex flex-col items-center p-6 bg-gray-700 rounded-lg hover:bg-gray-600 transition-all duration-300 hover:scale-105 group"
+              >
+                <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-gray-700 transition-colors">
+                  <img 
+                    src={linkedinIcon} 
+                    alt="LinkedIn" 
+                    className="w-8 h-8 object-contain"
                   />
                 </div>
-                <div>
-                  <textarea 
-                    placeholder="Your Message" 
-                    rows={4}
-                    className="w-full p-3 bg-gray-600 border border-gray-500 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400"
-                  ></textarea>
+                <h4 className="text-lg font-semibold text-blue-400 mb-2">LinkedIn</h4>
+                <p className="text-gray-300 text-sm text-center">Dilum Hapugoda</p>
+              </a>
+              
+              <a 
+                href="mailto:dilumhapugoda@gmail.com"
+                className="flex flex-col items-center p-6 bg-gray-700 rounded-lg hover:bg-gray-600 transition-all duration-300 hover:scale-105 group"
+              >
+                <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-gray-700 transition-colors">
+                  <img 
+                    src={emailIcon} 
+                    alt="Email" 
+                    className="w-8 h-8 object-contain"
+                  />
                 </div>
-                <button 
-                  type="submit"
-                  className="w-full py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-colors"
-                >
-                  Send Message
-                </button>
-              </form>
+                <h4 className="text-lg font-semibold text-blue-400 mb-2">Email</h4>
+                <p className="text-gray-300 text-sm text-center">dilumhapugoda@gmail.com</p>
+              </a>
             </div>
           </div>
         </div>
